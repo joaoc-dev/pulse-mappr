@@ -1,4 +1,4 @@
-import antfu from '@antfu/eslint-config'
+import antfu from '@antfu/eslint-config';
 
 export default antfu({
   react: true,
@@ -22,4 +22,4 @@ export default antfu({
   rules: {
     'node/prefer-global/process': 'off', // Allow using `process.env`
   },
-})
+});

@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { generateClient } from 'aws-amplify/data';
 import type { Schema } from '@/amplify/data/resource';
 import { useAuthenticator } from '@aws-amplify/ui-react';
-import './../app/app.css';
 import { Amplify } from 'aws-amplify';
+import { generateClient } from 'aws-amplify/data';
+import { useEffect, useState } from 'react';
 import outputs from '@/amplify_outputs.json';
+import './../app/app.css';
 import '@aws-amplify/ui-react/styles.css';
 
 Amplify.configure(outputs);
@@ -19,7 +19,7 @@ export default function HomePage() {
 
   function listTodos() {
     client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
+      next: data => setTodos([...data.items]),
     });
   }
 
@@ -29,6 +29,7 @@ export default function HomePage() {
 
   function createTodo() {
     client.models.Todo.create({
+      // eslint-disable-next-line no-alert
       content: window.prompt('Todo content'),
     });
   }
@@ -39,15 +40,18 @@ export default function HomePage() {
 
   return (
     <main>
-      <button onClick={signOut}>Sign out</button>
-      <h1>{user?.signInDetails?.loginId}'s todos</h1>
-      <button onClick={createTodo}>+ new</button>
+      <button type="button" onClick={signOut}>Sign out</button>
+      <h1>
+        {user?.signInDetails?.loginId}
+        's todos
+      </h1>
+      <button type="button" onClick={createTodo}>+ new</button>
 
       <ul>
-        {todos.map((todo) => (
+        {todos.map(todo => (
           <li key={todo.id}>
             {todo.content}
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            <button type="button" onClick={() => deleteTodo(todo.id)}>Delete</button>
           </li>
         ))}
       </ul>
