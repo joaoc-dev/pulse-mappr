@@ -6,6 +6,7 @@ import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/data';
 import { useEffect, useState } from 'react';
 import outputs from '@/amplify_outputs.json';
+import { env } from '@/env/client';
 import './../app/app.css';
 import '@aws-amplify/ui-react/styles.css';
 
@@ -55,6 +56,10 @@ export default function HomePage() {
           </li>
         ))}
       </ul>
+      <p>
+        Public variable:
+        {env.NEXT_PUBLIC_VARIABLE}
+      </p>
       <div>
         🥳 App successfully hosted. Try creating a new todo.
         <br />
