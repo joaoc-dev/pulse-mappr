@@ -36,6 +36,7 @@
     "constructs": "^10.3.0",
     "esbuild": "^0.23.1",
     "eslint": "^9.35.0",
+    "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "tsx": "^4.19.0",
