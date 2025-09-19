@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './app.css';
+import { env as serverEnv } from '@/env/server';
 import AuthenticatorWrapper from './AuthenticatorWrapper';
+import './app.css';
 import '@aws-amplify/ui-react/styles.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -19,6 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <p>
+          Server variable:
+          {serverEnv.VARIABLE}
+        </p>
         <AuthenticatorWrapper>{children}</AuthenticatorWrapper>
       </body>
     </html>
