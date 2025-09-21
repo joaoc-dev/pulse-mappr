@@ -1,0 +1,20 @@
+{
+  "entry": [
+    "amplify/backend.ts",
+
+    "app/**/*.{ts,tsx}"
+  ],
+  "project": ["**/*.{ts,tsx,js,jsx}"],
+  "typescript": {
+    "config": ["tsconfig.json", "amplify/tsconfig.json"]
+  },
+  "ignoreDependencies": [
+    "@aws-amplify/backend-cli",
+    "aws-cdk",
+    "esbuild",
+    "tsx"
+  ],
+  "ignore": [
+    "amplify/tsconfig.json"
+  ]
+}

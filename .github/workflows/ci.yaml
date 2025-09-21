@@ -11,7 +11,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          package_json_file: package.json
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
@@ -28,3 +28,6 @@ jobs:
 
       - name: Lint
         run: pnpm lint
+
+      - name: Check dependencies
+        run: pnpm check:deps
